@@ -13,3 +13,14 @@ body,
 canvas{
     touch-action: none;
 }
+
+.htmlScreen iframe{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    /* width: 2048px;
+    height: 1028px; */
+    border: none;
+    border-radius: 20px;
+    background-color: #000000;
+}
