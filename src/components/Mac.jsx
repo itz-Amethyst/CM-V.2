@@ -8,7 +8,14 @@ import Site from "./Site";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf");
-  const stencil = useMask(1 , true)
+  const stencil = useMask(1, true)
+  useLayoutEffect(() => {
+    Object.values(nodes).forEach(
+      (node) =>
+        node.material &&
+        Object.assign(node.material, stencil),
+    )
+  }, [])
  
 
   return (
@@ -116,12 +123,13 @@ export default function Model(props) {
             geometry={nodes.Circle002_4.geometry}
             // material={materials.DisplayGlass}
           > */}
-            <Mask id={1} colorWrite={false} depthWrite={false} geometry={nodes.Circle002_4.geometry} >
+            <Mask id={1} colorWrite={false} depthWrite={false} geometry={nodes.Circle002_4.geometry} position={[0, 0, 0]}>
                 {/* <Site/> */}
                 <Html scale={4} transform zIndexRange={[1, 0]}>
                   <p>test</p>
                   <button>test</button>
               </Html>
+              {/* <Site/> */}
             </Mask>
           {/* </mesh> */}
           <mesh
