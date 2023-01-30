@@ -157,7 +157,7 @@ export default function Model(props) {
 }
 
 function DecalSticker(){
-  const [react, ironMan , rick] = useTexture(['./react.png', './iron-man.png' , './rick1.png'])
+  const [react, ironMan , rick] = useTexture(['./stickers/react.png', './stickers/iron-man.png' , './stickers/rick1.png'])
 
   return<>
       <Decal  position={[-10,0,6]} rotation={[2,6,2]} scale={5} map={react} map-anisotropy={15} />
