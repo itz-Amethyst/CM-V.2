@@ -26,10 +26,10 @@
     width: 50%;
     height: 100vh;
     z-index: 0;
-    background-color: #fff;
+    background-color: red;
   }
   
-  .block-lef{
+  .block-left{
     left: 0;
   }
   
@@ -71,5 +71,22 @@
     right: 42%;
   }
   
+  .loading{
+    z-index: 10;
+    top: 32%;
+    right: 45%;
+    opacity: 1;
+  }
   
-  
+  .button{
+    z-index: 10;
+    top: 32%;
+    right: 45%;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .hide{
+    opacity: 0;
+    pointer-events: none;
+  }
