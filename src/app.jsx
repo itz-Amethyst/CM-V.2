@@ -1,8 +1,9 @@
 import { ContactShadows, Environment, Float, Html, OrbitControls, PivotControls, PresentationControls, Stage } from '@react-three/drei'
 import { useControls } from 'leva'
-import { Suspense, useRef } from 'react'
+import { Suspense } from 'react'
+import Loading from './components/Loading/Loading'
+import Progress from './components/Loading/Progress'
 import Mac from './components/Mac'
-import { Mac2 } from './components/Mac2'
 
 export default function App()
 {
@@ -14,12 +15,12 @@ export default function App()
         colorRect: '#000fff' //#ff008e
      })
 
-    return <>
+    return <> 
 
         <Environment preset='city'/>
         <color args={[color]} attach='background'/>
         
-        <Suspense fallback={null}>
+        <Suspense fallback={<Progress/>}>
             <PresentationControls
                 global
                 rotation={[0.03 , -0.2 , -0.1]}
