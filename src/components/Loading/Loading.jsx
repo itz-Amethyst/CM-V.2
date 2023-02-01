@@ -1,13 +1,14 @@
 import './style.css'
 import gsap from "gsap";
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Progress from './Progress';
+import Entry from './Entry';
 
 export default function Loading(){
 
-  const[hasClicked , setHasClicked] = useState(false)
+ 
 
-  const element = document.querySelector('button')
+  const element = document.querySelector('.button')
 
   // const loading = document.querySelector('.loading')
 
@@ -15,37 +16,27 @@ export default function Loading(){
   const toggleClicked = () =>{
     setHasClicked(hasClicked)
 
+    useEffect(() =>{
+      element.style.opacity = null
+    element.style.pointerEvents = null
+    },[])
+
     //? bug need to add loading class to progresss comp
     // loading.remove()
 
-    element.remove()
+    // element.remove()
+
 
   }
 
+  // const color = useMemo(() =>{
+  //   element.style.opacity = null
+  //   element.style.pointerEvents = null
+  // }, [hasClicked])
+
   return <>
-      <div className="container">
-
-      <div className="blocks">
-        <div className="block block-left">
-
-        </div>
-        <div className="block block-right">
-
-        </div>
-      </div>
-
-      <div className="letters">
-        <div className="row">
-          {/* <div className="letter top-left">T</div> */}
-          <div className="letter loading"><Progress/></div>
-
-          <div className="letter button"><button onClick={toggleClicked}>Click to start</button></div>
-          {/* <div className="letter top-right">2</div> */}
-        </div>
-        <div className="row">
-          {/* <div className="letter bottom-right">7</div> */}
-        </div>
-      </div>
+    <div className="container">
+      <Entry/>
 
 
     </div>
