@@ -1,3 +1,4 @@
+import gsap from "gsap";
 import { useState } from "react"
 import Progress from "./Progress";
 
@@ -7,6 +8,12 @@ export default function Entry(){
 
     const toggleClicker = () =>{
         setHasClicked(!hasClicked)
+
+        setTimeout(() =>{
+            var parent = document.querySelector('.remove')
+            parent.remove()
+        },4000 )
+        Animate()
     }
 
     console.log(hasClicked);
@@ -15,6 +22,7 @@ export default function Entry(){
 
         <Progress/>
 
+        <div className="remove">
           <div>
             <button className='button' onClick={toggleClicker}> Click to see</button>
           </div>
@@ -28,7 +36,25 @@ export default function Entry(){
                 </div>
           </div>
 
-        {hasClicked && <>
+        </div>
+
+          <div className="letters">
+                <div className="row">
+                    <div className="letter top-left">
+                        <img className="weird" src="./gifs/weird.gif"></img>
+                    </div>
+                    <div className="letter top-right">
+                        <img className="dj" src="./gifs/dj.gif"></img>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="letter bottom-right">
+                        <img className="duck" src="./gifs/duck.gif"></img>
+                    </div>
+                </div>
+            </div>
+
+        {/* {hasClicked && <>
     
             <div className="letters">
                 <div className="row">
@@ -40,7 +66,64 @@ export default function Entry(){
                 </div>
             </div>
          </>
-        }
+        } */}
         
     </>
+}
+
+function Animate(){
+    gsap.from('.letter',0.8 ,{
+        y:-20,
+        opacity:0,
+        ease:'power3.inOut',
+        stagger:0.1
+      })
+      
+      gsap.to('.top-left , .top-right',2 ,{
+        top:"0",
+        ease:'power3.inOut',
+        delay:2,
+      })
+      
+      gsap.to('.bottom-right',2 ,{
+        bottom:"0",
+        ease:'power3.inOut',
+        delay:2,
+      })
+      
+      gsap.to('.top-left',2 ,{
+        left:"0",
+        ease:'power3.inOut',
+        delay:2,
+      })
+      
+      gsap.to('.top-right',2 ,{
+        right:"0",
+        ease:'power3.inOut',
+        delay:2,
+      })
+      
+      gsap.to('.bottom-right',2 ,{
+        right:"0",
+        ease:'power3.inOut',
+        delay:2,
+      })
+      
+      gsap.to('.block-left',2 ,{
+        left:"-50%",
+        ease:'power3.inOut',
+        delay:2,
+      })
+      
+      gsap.to('.block-right',2 ,{
+        right:"-50%",
+        ease:'power3.inOut',
+        delay:2,
+      })
+  
+      gsap.to('.container',1,{
+        height:'0vh',
+        ease:'power3.inOut',
+        delay:3,
+      })
 }
