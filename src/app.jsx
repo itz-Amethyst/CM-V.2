@@ -20,7 +20,7 @@ export default function App()
         <Environment preset='city'/>
         <color args={[color]} attach='background'/>
         
-        <Suspense fallback={<Progress/>}>
+        <Suspense fallback={null}>
             <PresentationControls
                 global
                 rotation={[0.03 , -0.2 , -0.1]}
