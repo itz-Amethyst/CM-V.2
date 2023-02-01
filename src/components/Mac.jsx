@@ -1,9 +1,9 @@
 import React from "react";
-import { Decal, useGLTF, useMask, useTexture } from "@react-three/drei";
+import { Decal, useGLTF, useTexture } from "@react-three/drei";
 import Site from "./Site";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf");
+  const { nodes, materials } = useGLTF("./models/model.gltf");
 
   return (
     <group {...props} dispose={null}>
@@ -157,4 +157,4 @@ function DecalSticker(){
   </>
 }
 
-useGLTF.preload("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf");
+useGLTF.preload("./models/model.gltf");
