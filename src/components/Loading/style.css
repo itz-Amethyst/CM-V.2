@@ -29,7 +29,7 @@
     width: 50%;
     height: 100vh;
     z-index: 0;
-    background-color: black;
+    background-color: #1A1A1A;
   }
   
   .block-left{
@@ -94,8 +94,12 @@
     top: 40%;
     right: 38%;
     appearance: none;
-    background-color: #000000;
-    border: 2px solid #1A1A1A;
+    /* background-color: rgb(184, 184, 184); */
+    background-image: linear-gradient(to right, #E0EAFC 0%, #CFDEF3  51%, #E0EAFC  100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    /* border: 2px solid #1A1A1A; */
+    border: none;
     border-radius: 15px;
     box-sizing: border-box;
     color: #FFFFFF;
@@ -117,7 +121,7 @@
     /* width: 100%; */
     width: 30em;
     will-change: transform;
-    animation:bouncy 5s infinite linear;
+    animation:bouncy 4s infinite linear;
     opacity: 0;
     pointer-events: none;
   }
@@ -127,14 +131,17 @@
   }
   
   .button:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-2px);
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px); */
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
   }
   
-  .button:active {
+  /* .button:active {
     box-shadow: none;
     transform: translateY(0);
-  }
+  } */
 
   .duck{
     width: 200px;
