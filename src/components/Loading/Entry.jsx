@@ -8,7 +8,6 @@ export default function Entry(){
 
     const toggleClicker = () =>{
         setHasClicked(!hasClicked)
-
         setTimeout(() =>{
             var parent = document.querySelector('.remove')
             parent.remove()
@@ -16,7 +15,6 @@ export default function Entry(){
         Animate()
     }
 
-    console.log(hasClicked);
 
     return<>
 
@@ -24,7 +22,7 @@ export default function Entry(){
 
         <div className="remove">
           <div>
-            <button className='button' onClick={toggleClicker}> Click to see</button>
+            <button className='button hide' onClick={toggleClicker}> Click to see</button>
           </div>
 
           <div className="blocks">
@@ -72,12 +70,27 @@ export default function Entry(){
 }
 
 function Animate(){
-    gsap.from('.letter',0.8 ,{
-        y:-20,
-        opacity:0,
-        ease:'power3.inOut',
-        stagger:0.1
-      })
+    // gsap.from('.letter',0.8 ,{
+    //     y:-20,
+    //     opacity:0,
+    //     ease:'power3.inOut',
+    //     stagger:0.1
+    //   })
+
+
+
+    gsap.to('.button' , 0.9, {
+      x:40,
+      opacity:0,
+      ease:'power3.inOut',
+    })
+
+    gsap.to('.letter',  1.2 ,{
+      y:-40,
+      opacity:1,
+      ease:'power3.inOut',
+      // delay:1
+    })
       
       gsap.to('.top-left , .top-right',2 ,{
         top:"0",
@@ -121,7 +134,7 @@ function Animate(){
         delay:2,
       })
   
-      gsap.to('.container',1,{
+      gsap.to('.container',1.8,{
         height:'0vh',
         ease:'power3.inOut',
         delay:3,

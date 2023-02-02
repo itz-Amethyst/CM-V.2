@@ -53,7 +53,7 @@
     font-size: 8em;
     /* color: #fff; */
     /* mix-blend-mode: difference; */
-    opacity: 1;
+    opacity: 0;
   }
   
   .row{
@@ -171,8 +171,8 @@
     width: 30em;
     will-change: transform;
     animation:bouncy 4s infinite linear;
-    opacity: 0;
-    pointer-events: none;
+    /* opacity: 0;
+    pointer-events: none; */
   }
   
   .button:disabled {
@@ -185,6 +185,7 @@
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+    animation-play-state: paused;
   }
   
   /* .button:active {
