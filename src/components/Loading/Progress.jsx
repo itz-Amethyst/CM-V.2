@@ -1,6 +1,6 @@
 import { useProgress } from "@react-three/drei"
 import gsap from "gsap";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import LoadingMessages from "../common/Loadingmessages";
 
 export default function Progress(){
@@ -16,18 +16,9 @@ export default function Progress(){
     var text = LoadingMessages[LoadingText]
 
     if(loaded === 9){
-    //    Animate()
-    DisLoading()
+      DisLoading()
     }
     console.log(active, progress, errors, item, loaded, total);
-    // return <div className="loading">
-    //           <div className="">
-    //             <span>{text}</span>
-    //           </div>
-    //         <span>
-    //             {progress} % loaded 
-    //         </span>
-    //     </div>
 
     return<>
       <section>
@@ -64,6 +55,10 @@ function DisLoading(){
 
   // document.querySelector('.button').style.pointerEvents = "all"
 
-  document.querySelector('.button').classList.remove('hide')
+  // : (
+  // useEffect(() =>{
+  //   document.querySelector('.button').classList.remove('hide')
+  // },[])
 
+  document.querySelector('.button').classList.remove('hide')
 }
