@@ -1,16 +1,30 @@
 import gsap from "gsap";
 import { useState } from "react"
 import Progress from "./Progress";
+import useSound from "use-sound";
 
 export default function Entry(){
 
+    const duckSound = './hits/duck-sound.mp3'
+
     const[hasClicked , setHasClicked] = useState(false)
+
+    const [isHovering, setIsHovering] = useState(false);
+
+    const[showElements , setShowElements] = useState(false)
+
+    const [playDuck, { stopDuck }] = useSound(
+      duckSound,
+      { volume: 0.3 }
+    );
 
     const toggleClicker = () =>{
         setHasClicked(!hasClicked)
         setTimeout(() =>{
             var parent = document.querySelector('.remove')
             parent.remove()
+            setShowElements(!showElements)
+            console.log(showElements)
         },4000 )
         Animate()
     }
@@ -22,7 +36,7 @@ export default function Entry(){
 
         <div className="remove">
           <div>
-            <button className='button hide' onClick={toggleClicker}> Click to see</button>
+            <button className='button hide' onClick={toggleClicker}> <span>Click to see</span> </button>
           </div>
 
           <div className="blocks">
@@ -46,8 +60,19 @@ export default function Entry(){
                     </div>
                 </div>
                 <div className="row">
-                    <div className="letter bottom-right">
-                        <img className="duck" src="./gifs/duck.gif"></img>
+                    <div className="letter bottom-right" >
+                        <img
+                        onMouseEnter={()=>{
+                            if(showElements == true){
+                              setIsHovering(true);
+                              playDuck();
+                            }
+                          }}
+                            onMouseLeave={()=>{
+                              setIsHovering(false);
+                              stopDuck();
+                          }} 
+                          className="duck" src="./gifs/duck.gif" isHovering={isHovering}></img>
                     </div>
                 </div>
             </div>
@@ -77,7 +102,7 @@ function Animate(){
     //     stagger:0.1
     //   })
 
-
+    document.querySelector('.button').classList.add('none')
 
     gsap.to('.button' , 0.9, {
       x:40,

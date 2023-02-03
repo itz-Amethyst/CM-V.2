@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Brier-Regular';
-  src: url('../fonts/Brier-Regular.otf');
+  src: url('../fonts/Brier-Regular.ttf') format('truetype');
 }
 
 *{
@@ -141,6 +141,10 @@
     pointer-events: none;
   }
 
+  .none{
+    pointer-events: none;
+  }
+
   .button {
     z-index: 1;
     position: absolute;
@@ -199,6 +203,7 @@
 
   .duck{
     width: 200px;
+
   }
   .dj{
     right: 30%;
