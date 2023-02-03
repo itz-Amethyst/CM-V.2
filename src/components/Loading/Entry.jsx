@@ -7,6 +7,10 @@ export default function Entry(){
 
     const duckSound = './hits/duck-sound.mp3'
 
+    const nggypSound = './hits/never-gonna-give-you-up.mp3'
+
+    const weirdSound = './hits/vine-boooom.mp3'
+
     const[hasClicked , setHasClicked] = useState(false)
 
     const [isHovering, setIsHovering] = useState(false);
@@ -18,11 +22,22 @@ export default function Entry(){
       { volume: 0.3 }
     );
 
+    const [playNggyp] = useSound(nggypSound , {
+      interrupt: true,
+      volume: 0.3
+    });
+
+    const [playWeird] = useSound(weirdSound , {
+      interrupt: true,
+      volume: 0.3
+    });
+
     const toggleClicker = () =>{
         setHasClicked(!hasClicked)
         setTimeout(() =>{
-            var parent = document.querySelector('.remove')
-            parent.remove()
+            // var parent = document.querySelector('.remove')
+            // : (
+            // parent.remove()
             setShowElements(!showElements)
             console.log(showElements)
         },4000 )
@@ -53,10 +68,23 @@ export default function Entry(){
           <div className="letters">
                 <div className="row">
                     <div className="letter top-left">
-                        <img className="weird" src="./gifs/weird.gif"></img>
+                        <img
+                           onMouseDown={()=>{
+                            if(showElements == true){
+                              setIsHovering(true);
+                              playWeird();
+                            }
+                          }}
+                        className="weird" src="./gifs/weird.gif" draggable ={false}></img>
                     </div>
                     <div className="letter top-right">
-                        <img className="dj" src="./gifs/dj.gif"></img>
+                        <img
+                        onMouseDown={()=>{
+                          if(showElements == true){
+                            playNggyp();
+                          }
+                        }}
+                        className="dj" draggable ={false} src="./gifs/dj.gif"></img>
                     </div>
                 </div>
                 <div className="row">
@@ -68,11 +96,13 @@ export default function Entry(){
                               playDuck();
                             }
                           }}
-                            onMouseLeave={()=>{
-                              setIsHovering(false);
-                              stopDuck();
-                          }} 
-                          className="duck" src="./gifs/duck.gif" isHovering={isHovering}></img>
+                          //   onMouseLeave={()=>{
+                          //     if(showElements == true){
+                          //       setIsHovering(false);
+                          //       stopDuck();
+                          //     }
+                          // }} 
+                          className="duck" src="./gifs/duck.gif" draggable ={false} isHovering={isHovering ? 1 : 0}></img>
                     </div>
                 </div>
             </div>
