@@ -12,7 +12,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family:'Times New Roman', Times, serif */
   }
   
   html , body{
@@ -24,9 +23,8 @@
   .container{
     width: 100%;
     height: 100vh;
-    background-color: cyan;
+    background: linear-gradient(109.6deg, rgb(245, 239, 249) 30.1%, rgb(207, 211, 236) 100.2%);
     overflow: hidden;
-    /* z-index: 1; */
   }
   
   .blocks{
@@ -55,8 +53,6 @@
     z-index: 10;
     padding: 0 0.2em;
     font-size: 8em;
-    /* color: #fff; */
-    /* mix-blend-mode: difference; */
     opacity: 0;
   }
   
@@ -97,7 +93,6 @@
   .lText{
     font-size: 20px;
     font-weight: 500;
-    /* margin-left: 30px; */
     margin-top: 20px;
     white-space: nowrap;
     font-family: 'Brier-Regular';
@@ -105,7 +100,6 @@
   .lAnimated{
     letter-spacing: 20px;
     font-size: 44px;
-    /* font-family: 'Montserrat', sans-serif; */
     font-family: 'Canopee';
     font-weight: 800;
     text-align: center;
@@ -151,11 +145,9 @@
     top: 40%;
     right: 38%;
     appearance: none;
-    /* background-color: rgb(184, 184, 184); */
     background-image: linear-gradient(to right, #E0EAFC 0%, #CFDEF3  51%, #E0EAFC  100%);
     background-size: 200% auto;
     box-shadow: 0 0 20px #eee;
-    /* border: 2px solid #1A1A1A; */
     border: none;
     border-radius: 15px;
     box-sizing: border-box;
@@ -175,12 +167,9 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    /* width: 100%; */
     width: 30em;
     will-change: transform;
     animation:bouncy 4s infinite linear;
-    /* opacity: 0;
-    pointer-events: none; */
   }
   
   .button:disabled {
@@ -188,18 +177,11 @@
   }
   
   .button:hover {
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-2px); */
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center; 
     color: #fff;
     text-decoration: none;
     animation-play-state: paused;
   }
-  
-  /* .button:active {
-    box-shadow: none;
-    transform: translateY(0);
-  } */
 
   .duck{
     width: 200px;
