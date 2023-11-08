@@ -151,9 +151,9 @@ function DecalSticker(){
   const [react, ironMan , rick] = useTexture(['./stickers/react.png', './stickers/iron-man.png' , './stickers/rick.png'])
 
   return<>
-      <Decal  position={[-10,0,6]} rotation={[2,6,2]} scale={5} map={react} map-anisotropy={15} />
-      <Decal  position={[10,0,6]} rotation={[-1,0,0]} scale={9}  map={ironMan} map-anisotropy={16} />
-      <Decal  position={[-13.5,0,-9]} rotation={[-1,0,0]} scale={3.6}  map={rick} map-anisotropy={16} />
+      <Decal  position={[-10,0,6]} rotation={[2,6,2]} scale={5} map={react}  />
+      <Decal  position={[10,0,6]} rotation={[-1,0,0]} scale={9}  map={ironMan}  />
+      <Decal  position={[-13.5,0,-9]} rotation={[-1,0,0]} scale={3.6}  map={rick}  />
   </>
 }
 

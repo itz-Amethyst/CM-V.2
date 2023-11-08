@@ -15,7 +15,7 @@ export default function Progress(){
 
     var text = LoadingMessages[LoadingText]
 
-    if(loaded === 9){
+    if(active == false){
       DisLoading()
     }
     console.log(active, progress, errors, item, loaded, total);
