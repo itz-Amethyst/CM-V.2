@@ -4,6 +4,8 @@ import { Canvas } from '@react-three/fiber'
 import App from './app.jsx'
 import Loading from './components/Loading/Loading'
 
+import { Analytics } from '@vercel/analytics/react';
+
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
@@ -20,5 +22,7 @@ root.render(
         >
             <App/>
         </Canvas>
+
+        <Analytics/>
     </>
 )
